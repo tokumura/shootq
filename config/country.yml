@@ -1,0 +1,160 @@
+country1:
+  name: "ブラジル"
+  code: "BRA"
+  group: "A"
+
+country2:
+  name: "クロアチア"
+  code: "HRV"
+  group: "A"
+
+country3:
+  name: "メキシコ"
+  code: "MEX"
+  group: "A"
+
+country4:
+  name: "カメルーン"
+  code: "CME"
+  group: "A"
+
+country5:
+  name: "スペイン"
+  code: "ESP"
+  group: "B"
+
+country6:
+  name: "オランダ"
+  code: "NLD"
+  group: "B"
+
+country7:
+  name: "チリ"
+  code: "CHL"
+  group: "B"
+
+country8:
+  name: "オーストラリア"
+  code: "AUS"
+  group: "B"
+
+country9:
+  name: "コロンビア"
+  code: "COL"
+  group: "C"
+
+country10:
+  name: "ギリシャ"
+  code: "GRC"
+  group: "C"
+
+country11:
+  name: "コードジボアール"
+  code: "CIV"
+  group: "C"
+
+country12:
+  name: "日本"
+  code: "JPN"
+  group: "C"
+
+country13:
+  name: "ウルグアイ"
+  code: "URY"
+  group: "D"
+
+country14:
+  name: "コスタリカ"
+  code: "CRI"
+  group: "D"
+
+country15:
+  name: "イングランド"
+  code: "ENG"
+  group: "D"
+
+country16:
+  name: "イタリア"
+  code: "ITA"
+  group: "D"
+
+country17:
+  name: "スイス"
+  code: "CHE"
+  group: "E"
+
+country18:
+  name: "エクアドル"
+  code: "ECU"
+  group: "E"
+
+country19:
+  name: "フランス"
+  code: "FRA"
+  group: "E"
+
+country20:
+  name: "ホンジュラス"
+  code: "HND"
+  group: "E"
+
+country21:
+  name: "アルゼンチン"
+  code: "ARG"
+  group: "F"
+
+country22:
+  name: "ボスニア・ヘルツェゴビナ"
+  code: "BIH"
+  group: "F"
+
+country23:
+  name: "イラン"
+  code: "IRN"
+  group: "F"
+
+country24:
+  name: "ナイジェリア"
+  code: "NGA"
+  group: "F"
+
+country25:
+  name: "ドイツ"
+  code: "DEU"
+  group: "G"
+
+country26:
+  name: "ポルトガル"
+  code: "PRT"
+  group: "G"
+
+country27:
+  name: "ガーナ"
+  code: "GHA"
+  group: "G"
+
+country28:
+  name: "アメリカ"
+  code: "USA"
+  group: "G"
+
+country29:
+  name: "ベルギー"
+  code: "BEL"
+  group: "H"
+
+country30:
+  name: "アルジェリア"
+  code: "DZA"
+  group: "H"
+
+country31:
+  name: "ロシア"
+  code: "RUS"
+  group: "H"
+
+country32:
+  name: "韓国"
+  code: "KOR"
+  group: "H"
+
