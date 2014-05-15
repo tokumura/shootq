@@ -1,25 +1,28 @@
 <div class="col-xs-12">
-<h1>Listing portals</h1>
+  <h2>Portal</h2>
+  <br/>
+  <br/>
+  <p>
+  現在作成中です。
+  適当に情報サイト載っけておきます。<br><br>
+  <a href="http://members.jcom.home.ne.jp/wcup/" target="_blank">ワールドカップのデータベース</a><br>
+  <a href="http://worldcup.21century.info/" target="_blank">出場全32ヶ国の解説と分析</a><br>
+  <a href="http://www.watch2chan.com/archives/35497186.html" target="_blank">イギリスの新聞がワールドカップに出場する32ヶ国を動物に例えたのが秀逸すぎるｗｗｗ</a><br>
+  </p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @portals.each do |portal| %>
+  <h3>皆さんの意気込み</h3>
+  <table class="table table-bordered">
+    <thead>
+      <th style="width:100px;">名前</th>
+      <th style="">意気込み</th>
+    </thead>
+    <tbody>
+      <% @users.each do |u| %>
       <tr>
-        <td><%= link_to 'Show', portal %></td>
-        <td><%= link_to 'Edit', edit_portal_path(portal) %></td>
-        <td><%= link_to 'Destroy', portal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= u.user_info.name %></td>
+        <td><%= u.user_info.voice %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Portal', new_portal_path %>
+      <% end %>
+    </tbody>
+  </table>
 </div>

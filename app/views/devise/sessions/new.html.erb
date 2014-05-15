@@ -7,31 +7,23 @@
     option_users.store(u.user_info.name, u.account)
   end
 %>
-  <div class="col-md-8 col-md-offset-1" style="color:#FFFFFF">
+  <div class="col-md-6 col-md-offset-6" style="color:#FFFFFF; margin-top:-50px;">
     <h1>SHOOT-Q</h1>
     <h2>Sanei 2014 FIFA World Cup</h2>
     <h4>〜 絶対に負けられない戦いが、そこにはある 〜</h4>
   </div>
 
-  <div class="col-md-4 col-md-offset-7 well">
+  <div class="col-md-3 col-md-offset-7" style="margin-top:40px;">
 
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div>
-      <%= f.label :account %>
-      <%= f.select :account, option_users, {} %>
-    </div>
-
-    <div><%= f.label :password %>
-    <%= f.password_field :password %></div>
-
-    <% if devise_mapping.rememberable? -%>
-      <div><%# f.check_box :remember_me %> <%= f.label :remember_me %></div>
-    <% end -%>
-
-    <div><%= f.submit "Sign in", :class => 'btn btn-info' %></div>
-  <% end %>
-
-
-<%# render "devise/shared/links" %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div>
+        <%= f.select :account, option_users, { }, :class => "form-control" %>
+        <%= f.hidden_field :password, :value => "aaaaaaaa" %>
+      </div>
+      <br/>
+      <div align="right">
+        <%= f.submit "Sign in", :class => 'btn btn-info' %>
+      </div>
+    <% end %>
+  </div>
 

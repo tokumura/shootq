@@ -5,6 +5,7 @@ class PortalsController < ApplicationController
   # GET /portals.json
   def index
     @portals = Portal.all
+    @users = User.all
   end
 
   # GET /portals/1
