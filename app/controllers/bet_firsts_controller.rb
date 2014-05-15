@@ -1,5 +1,6 @@
 class BetFirstsController < ApplicationController
   before_action :set_bet_first, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /bet_firsts
   # GET /bet_firsts.json

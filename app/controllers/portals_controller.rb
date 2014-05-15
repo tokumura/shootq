@@ -1,5 +1,6 @@
 class PortalsController < ApplicationController
-  before_action :set_portal, only: [:show, :edit, :update, :destroy]
+  before_action :set_porjal, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /portals
   # GET /portals.json

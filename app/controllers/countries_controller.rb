@@ -2,6 +2,7 @@
 
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def init
     Country.init
