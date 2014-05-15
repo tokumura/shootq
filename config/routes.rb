@@ -1,11 +1,31 @@
 Rails.application.routes.draw do
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  devise_for :users
+
+  resources :user_infos do
+    collection do
+      post :commit_voice
+    end
+  end
+
+  root :to => 'welcome#index'
+  resources :welcome, :only => ['index']
+  get :portals, :to => 'portals#index', :as => :user_root
+
+  resources :portals
+
+  resources :dashboard
+
+  resources :bet_firsts
+
   resources :countries do
     collection do
       get :init
     end
   end
 
-  resources :portals
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

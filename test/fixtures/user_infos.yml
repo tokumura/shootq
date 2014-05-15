@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  point_first: 1
+  point_second: 1
+  point_third: 1
+  point_total: 1
+
+two:
+  name: MyString
+  point_first: 1
+  point_second: 1
+  point_third: 1
+  point_total: 1

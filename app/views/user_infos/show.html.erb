@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user_info.name %>
+</p>
+
+<p>
+  <strong>Point first:</strong>
+  <%= @user_info.point_first %>
+</p>
+
+<p>
+  <strong>Point second:</strong>
+  <%= @user_info.point_second %>
+</p>
+
+<p>
+  <strong>Point third:</strong>
+  <%= @user_info.point_third %>
+</p>
+
+<p>
+  <strong>Point total:</strong>
+  <%= @user_info.point_total %>
+</p>
+
+<%= link_to 'Edit', edit_user_info_path(@user_info) %> |
+<%= link_to 'Back', user_infos_path %>

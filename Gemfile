@@ -39,3 +39,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'therubyracer'
+gem 'devise'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'

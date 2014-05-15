@@ -1,0 +1,2 @@
+module BetFirstsHelper
+end

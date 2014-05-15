@@ -1,0 +1,29 @@
+<h1>Listing bet_firsts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Match code</th>
+      <th>Score</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bet_firsts.each do |bet_first| %>
+      <tr>
+        <td><%= bet_first.match_code %></td>
+        <td><%= bet_first.score %></td>
+        <td><%= bet_first.user_id %></td>
+        <td><%= link_to 'Show', bet_first %></td>
+        <td><%= link_to 'Edit', edit_bet_first_path(bet_first) %></td>
+        <td><%= link_to 'Destroy', bet_first, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bet first', new_bet_first_path %>

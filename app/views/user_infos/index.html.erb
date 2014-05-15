@@ -1,0 +1,33 @@
+<h1>Listing user_infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Point first</th>
+      <th>Point second</th>
+      <th>Point third</th>
+      <th>Point total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_infos.each do |user_info| %>
+      <tr>
+        <td><%= user_info.name %></td>
+        <td><%= user_info.point_first %></td>
+        <td><%= user_info.point_second %></td>
+        <td><%= user_info.point_third %></td>
+        <td><%= user_info.point_total %></td>
+        <td><%= link_to 'Show', user_info %></td>
+        <td><%= link_to 'Edit', edit_user_info_path(user_info) %></td>
+        <td><%= link_to 'Destroy', user_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User info', new_user_info_path %>
