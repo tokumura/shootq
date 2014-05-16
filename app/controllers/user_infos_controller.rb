@@ -1,12 +1,17 @@
 class UserInfosController < ApplicationController
   before_action :set_user_info, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   def commit_voice
     user = User.where(account: params["account"].to_s).first
     voice = params["voice"].to_s
     user.user_info.voice = voice
     user.user_info.save
+    redirect_to user_root_path
+  end
+
+  def init
+    UserInfo.init
     redirect_to user_root_path
   end
 

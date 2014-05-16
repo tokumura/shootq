@@ -15,7 +15,9 @@ ActiveRecord::Schema.define(version: 20140515081928) do
 
   create_table "bet_firsts", force: true do |t|
     t.string   "match_code"
-    t.string   "score"
+    t.string   "score_l"
+    t.string   "score_r"
+    t.string   "group"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

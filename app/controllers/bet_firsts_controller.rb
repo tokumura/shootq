@@ -2,6 +2,11 @@ class BetFirstsController < ApplicationController
   before_action :set_bet_first, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
+  def init
+    BetFirst.init
+    redirect_to user_root_path
+  end
+
   # GET /bet_firsts
   # GET /bet_firsts.json
   def index

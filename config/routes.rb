@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :user_infos do
     collection do
       post :commit_voice
+      get :init
     end
   end
 
@@ -18,7 +19,11 @@ Rails.application.routes.draw do
 
   resources :dashboard
 
-  resources :bet_firsts
+  resources :bet_firsts do
+    collection do
+      get :init
+    end
+  end
 
   resources :countries do
     collection do

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :authentication_keys => [:account]
 
   has_one :user_info
+  has_many :bet_firsts
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
