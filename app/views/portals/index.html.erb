@@ -8,7 +8,7 @@
   <h3>ニュースピックアップ</h3><br/>
   <div class="row">
   <% @news_feeds.each_with_index do |nf, i| %>
-    <div class="col-sm-4 col-md-3">
+    <div class="col-sm-4 col-md-3 ms-item">
       <div class="thumbnail">
         <a href="<%=nf.news_url%>" target="_blank">
           <img src="<%=nf.news_img_url%>" style="width:280px">
