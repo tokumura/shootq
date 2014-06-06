@@ -20,7 +20,8 @@
         <tr>
           <td>
             <%= match_date %>(<%=bet_first.dayofweek%>)
-            <%=bet_first.match_time%>
+            <%=bet_first.match_time%><br/>
+            <font size="1">Group <%=bet_first.group_name%></font>
           </td>
           <td style="text-align:center; font-size:8px;">
             <img src="http://img.fifa.com/images/flags/4/<%=country_l.flag %>.png" style="width:50px;"><br/>
@@ -44,4 +45,5 @@
   </table>
   <%= submit_tag "登　録", :class => "btn btn-primary" %>
 <% end %>
+<br/>
 

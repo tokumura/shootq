@@ -10,7 +10,7 @@ class BetFirstsController < ApplicationController
   # GET /bet_firsts
   # GET /bet_firsts.json
   def index
-    @bet_firsts = current_user.bet_firsts.order("created_at")
+    @bet_firsts = current_user.bet_firsts.order("id")
     #@bet_firsts = BetFirst.all
   end
 
