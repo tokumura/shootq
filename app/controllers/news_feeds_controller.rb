@@ -7,6 +7,10 @@ class NewsFeedsController < ApplicationController
     @news_feeds = NewsFeed.all
   end
 
+  def show_pickups
+    @news_feeds = NewsFeed.all
+  end
+
   # GET /news_feeds/1
   # GET /news_feeds/1.json
   def show

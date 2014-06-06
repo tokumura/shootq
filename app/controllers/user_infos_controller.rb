@@ -54,14 +54,10 @@ class UserInfosController < ApplicationController
   # PATCH/PUT /user_infos/1
   # PATCH/PUT /user_infos/1.json
   def update
-    respond_to do |format|
-      if @user_info.update(user_info_params)
-        format.html { redirect_to @user_info, notice: 'User info was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user_info }
-      else
-        format.html { render :edit }
-        format.json { render json: @user_info.errors, status: :unprocessable_entity }
-      end
+    if @user_info.update(user_info_params)
+      redirect_to user_root_path
+    else
+      redirect_to user_root_path
     end
   end
 
@@ -83,6 +79,6 @@ class UserInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_info_params
-      params.require(:user_info).permit(:name, :point_first, :point_second, :point_third, :point_total)
+      params.require(:user_info).permit(:name, :voice, :point_first, :point_second, :point_third, :point_total)
     end
 end

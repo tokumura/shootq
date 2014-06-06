@@ -16,26 +16,5 @@
       <br/>
     <% end %>
   <% end %>
-  </div>
-  <% if NewsFeed.all.size > 10 %>
-    <a href="<%=show_pickups_news_feeds_path%>">もっと見る</a>
-  <% end %>
-
-  <br/>
-
-  <h3>皆さんの意気込み</h3>
-  <table class="table table-bordered">
-    <thead>
-      <th style="width:100px;">名前</th>
-      <th style="">意気込み</th>
-    </thead>
-    <tbody>
-      <% @users.each do |u| %>
-      <tr>
-        <td><%= u.user_info.name %></td>
-        <td><%= u.user_info.voice %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>
+

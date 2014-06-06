@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :news_feeds
+  resources :news_feeds do
+    collection do
+      get :show_pickups
+    end
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
