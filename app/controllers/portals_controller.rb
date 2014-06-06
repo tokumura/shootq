@@ -6,7 +6,7 @@ class PortalsController < ApplicationController
   # GET /portals.json
   def index
     @portals = Portal.all
-    @users = User.all
+    @users = User.all.order("id")
     @news_feeds = NewsFeed.limit(10)
   end
 
