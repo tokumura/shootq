@@ -1,3 +1,10 @@
+<% if notice %>
+<div class="alert alert-success" style="margin-top:10px;">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
+<% end %>
+
 <h1>予選リーグを予想</h1>
 
 <%= form_tag('/bet_firsts/bet', :method => :post) do |f| %>

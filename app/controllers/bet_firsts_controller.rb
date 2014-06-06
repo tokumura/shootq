@@ -26,7 +26,9 @@ class BetFirstsController < ApplicationController
       bf_obj.save!
     end
     puts "###################"
-    redirect_to bet_firsts_path
+    respond_to do |format|
+      format.html { redirect_to bet_firsts_path, notice: 'Bet first was successfully destroyed.' }
+    end
   end
 
   # GET /bet_firsts/1
