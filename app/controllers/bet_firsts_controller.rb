@@ -27,7 +27,7 @@ class BetFirstsController < ApplicationController
     end
     puts "###################"
     respond_to do |format|
-      format.html { redirect_to bet_firsts_path, notice: 'Bet first was successfully destroyed.' }
+      format.html { redirect_to bet_firsts_path, notice: 'c(￣▽￣) OK!' }
     end
   end
 
