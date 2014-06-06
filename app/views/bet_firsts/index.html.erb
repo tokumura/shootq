@@ -1,29 +1,47 @@
-<h1>Listing bet_firsts</h1>
+<h1>予選リーグを予想</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Match code</th>
-      <th>Score</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bet_firsts.each do |bet_first| %>
+<%= form_tag('/bet_firsts/bet', :method => :post) do |f| %>
+  <table class="table table-hover" style="width:50%;">
+    <thead>
       <tr>
-        <td><%= bet_first.match_code %></td>
-        <td><%= bet_first.score %></td>
-        <td><%= bet_first.user_id %></td>
-        <td><%= link_to 'Show', bet_first %></td>
-        <td><%= link_to 'Edit', edit_bet_first_path(bet_first) %></td>
-        <td><%= link_to 'Destroy', bet_first, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>試合日時</th>
+        <th colspan="4"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @bet_firsts.each_with_index do |bet_first, i| %>
+        <%= fields_for bet_first do |bf| %>
+        <% codes = bet_first.match_code.split('-') %>
+        <% country_l = Country.find_by(code: codes[0].to_s) %>
+        <% country_r = Country.find_by(code: codes[1].to_s) %>
+        <% match_date = bet_first.match_date[1..1] + "/" + bet_first.match_date[2..3] %>
+        <% points = (0..10).to_a %>
+        <tr>
+          <td>
+            <%= match_date %>(<%=bet_first.dayofweek%>)
+            <%=bet_first.match_time%>
+          </td>
+          <td style="text-align:center; font-size:8px;">
+            <img src="http://img.fifa.com/images/flags/4/<%=country_l.flag %>.png" style="width:50px;"><br/>
+            <%= country_l.name %>
+          </td>
+          <td>
+            <%= bf.select :score_l, points, {}, :index => i, :class => "form-control", :style => "width:70px;" %>
+          </td>
+          <td>
+            <%= bf.select :score_r, points, {}, :index => i, :class => "form-control", :style => "width:70px;" %>
+          </td>
+          <td style="text-align:center; font-size:8px;">
+            <img src="http://img.fifa.com/images/flags/4/<%=country_r.flag %>.png" style="width:50px;"><br/>
+            <%= country_r.name %>
+          </td>
+          <%= bf.hidden_field :match_code, {:index => i}%>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag "登　録", :class => "btn btn-primary" %>
+<% end %>
 
-<%= link_to 'New Bet first', new_bet_first_path %>

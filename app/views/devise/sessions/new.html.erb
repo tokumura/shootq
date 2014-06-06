@@ -1,6 +1,6 @@
 
 <%
-  users = User.order("account ASC")
+  users = User.order("created_at ASC")
   option_users = Hash.new
   option_users.store('（自分を選んでください）', '')
   users.each do |u|

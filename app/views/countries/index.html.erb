@@ -1,10 +1,11 @@
 <h1>Listing countries</h1>
 
-<table>
+<table class="table" style="width:50%;">
   <thead>
     <tr>
       <th>Name</th>
       <th>Code</th>
+      <th>Flag</th>
       <th>Group</th>
       <th colspan="3"></th>
     </tr>
@@ -15,6 +16,7 @@
       <tr>
         <td><%= country.name %></td>
         <td><%= country.code %></td>
+        <td><%= country.flag %></td>
         <td><%= country.group %></td>
         <td><%= link_to 'Show', country %></td>
         <td><%= link_to 'Edit', edit_country_path(country) %></td>

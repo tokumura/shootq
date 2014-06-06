@@ -1,14 +1,15 @@
 <div class="col-xs-12">
-  <h2>Portal</h2>
+  <h2>ニュースピックアップ</h2><br/>
+  <% @news_feeds.each do |nf| %>
+    <h4>
+      <a href="<%=nf.news_url%>" target="_blank"><%=nf.title%></a>
+    </h4>
+    <a href="<%=nf.news_url%>" target="_blank"><img src="<%=nf.news_img_url%>" style="width:100px;"></a>
+    <br/>
+    <br/>
+  <% end %>
   <br/>
   <br/>
-  <p>
-  現在作成中です。
-  適当に情報サイト載っけておきます。<br><br>
-  <a href="http://members.jcom.home.ne.jp/wcup/" target="_blank">ワールドカップのデータベース</a><br>
-  <a href="http://worldcup.21century.info/" target="_blank">出場全32ヶ国の解説と分析</a><br>
-  <a href="http://www.watch2chan.com/archives/35497186.html" target="_blank">イギリスの新聞がワールドカップに出場する32ヶ国を動物に例えたのが秀逸すぎるｗｗｗ</a><br>
-  </p>
 
   <h3>皆さんの意気込み</h3>
   <table class="table table-bordered">

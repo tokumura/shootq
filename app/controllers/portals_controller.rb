@@ -7,6 +7,7 @@ class PortalsController < ApplicationController
   def index
     @portals = Portal.all
     @users = User.all
+    @news_feeds = NewsFeed.limit(5)
   end
 
   # GET /portals/1

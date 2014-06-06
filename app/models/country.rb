@@ -11,8 +11,14 @@ class Country < ActiveRecord::Base
       country = Country.new
       country["name"] = row[0][0].to_s
       country["code"] = row[0][1].to_s
-      country["group"] = row[0][2].to_s
+      country["flag"] = row[0][2].to_s
+      country["group"] = row[0][3].to_s
       country.save
     end
+  end
+
+  def self.get_name code
+    country = Country.find_by code: code
+    country.name
   end
 end

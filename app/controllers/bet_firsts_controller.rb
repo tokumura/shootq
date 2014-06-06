@@ -10,7 +10,23 @@ class BetFirstsController < ApplicationController
   # GET /bet_firsts
   # GET /bet_firsts.json
   def index
-    @bet_firsts = BetFirst.all
+    @bet_firsts = current_user.bet_firsts
+    #@bet_firsts = BetFirst.all
+  end
+
+  def bet
+    bet_data = params[:bet_first]
+    puts "###################"
+    bet_data.each do |bet|
+      b = bet[1]
+      bf_obj = BetFirst.where("match_code = ? AND user_id = ?", b["match_code"], current_user.id.to_s).first
+      puts bf_obj.match_code
+      bf_obj.score_l = b["score_l"]
+      bf_obj.score_r = b["score_r"]
+      bf_obj.save!
+    end
+    puts "###################"
+    redirect_to bet_firsts_path
   end
 
   # GET /bet_firsts/1
