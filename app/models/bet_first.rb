@@ -13,7 +13,7 @@ class BetFirst < ActiveRecord::Base
         bet.dayofweek = row[0][1].to_s
         bet.match_time = row[0][2].to_s
         bet.group_name = row[0][3].to_s
-        bet.match_code = row[0][4].to_s
+        #bet.match_code = row[0][4].to_s
         bet.score_l = ""
         bet.score_r = ""
         bet.user_id = u.id
