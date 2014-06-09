@@ -1,3 +1,12 @@
+<%
+  name_row_insert = 20
+  ua = request.env["HTTP_USER_AGENT"]
+  pull = "pull-left"
+  if(ua.include?('Mobile') || ua.include?('Android'))
+    name_row_insert = 7
+  end
+%>
+
 <h3>予選リーグ　みんなの予想</h3>
 
 <table class="table table-hover">
@@ -22,7 +31,7 @@
         <td><%=bets.score_l%> - <%=bets.score_r%></td>
       <% end %>
     </tr>
-    <% if i % 20 == 0 && i / 20 > 0 %>
+    <% if i % name_row_insert == 0 && i / name_row_insert > 0 %>
     <tr>
       <td></td>
       <% @users.each do |u| %>
