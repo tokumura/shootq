@@ -2,18 +2,19 @@
   <h2>ニュースピックアップ</h2><br/>
   <div class="row">
   <% @news_feeds.each_with_index do |nf, i| %>
-    <div class="col-sm-4 col-md-3">
+    <div class="col-sm-3 col-md-2 ms-item">
       <div class="thumbnail">
         <a href="<%=nf.news_url%>" target="_blank">
-          <img src="<%=nf.news_img_url%>" style="width:280px">
+          <img src="<%=nf.news_img_url%>" style="width:210px">
         </a>
         <div class="caption">
           <p><%=nf.title%></p>
         </div>
       </div>
     </div>
-    <% if (i+1)%3 == 0 %>
-      <br/>
+    <% if (i+1)%5 == 0 %>
+      </div>
+      <div class="row">
     <% end %>
   <% end %>
 </div>
