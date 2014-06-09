@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     collection do
       get :init
       get :show_everyones
+      get :show_ranking
       post :bet
     end
   end

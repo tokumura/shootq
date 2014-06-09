@@ -8,7 +8,7 @@
     <% end %>
   </thead>
   <tbody>
-  <% @matchs.each do |m| %>
+  <% @matchs.each_with_index do |m, i| %>
     <% codes = m.match_code.split('-') %>
     <% country_l = Country.find_by(code: codes[0].to_s) %>
     <% country_r = Country.find_by(code: codes[1].to_s) %>
@@ -17,11 +17,19 @@
         <img src="http://img.fifa.com/images/flags/4/<%=country_l.flag %>.png" style="width:30px;"> -
         <img src="http://img.fifa.com/images/flags/4/<%=country_r.flag %>.png" style="width:30px;">
       </td>
-      <% @users.each_with_index do |u, i| %>
+      <% @users.each do |u| %>
         <% bets = BetFirst.where("match_code = ? AND user_id = ?", m.match_code, u.id.to_s).first %>
         <td><%=bets.score_l%> - <%=bets.score_r%></td>
       <% end %>
     </tr>
+    <% if i % 20 == 0 && i / 20 > 0 %>
+    <tr>
+      <td></td>
+      <% @users.each do |u| %>
+        <td><%=u.user_info.name%></td>
+      <% end %>
+    </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>

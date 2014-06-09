@@ -13,6 +13,17 @@ class BetFirstsController < ApplicationController
     @bet_firsts = BetFirst.all.order("user_id")
   end
 
+  def show_ranking
+    labels = ""
+    bet_firsts = current_user.bet_firsts.order("id")
+    bet_firsts.each_with_index do |b, i|
+      labels = labels + b.match_code.to_s + ","
+    end
+    puts "###################"
+    puts labels.split(',')
+    puts "###################"
+  end
+
   # GET /bet_firsts
   # GET /bet_firsts.json
   def index

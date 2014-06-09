@@ -8,33 +8,38 @@
   <h3>ニュースピックアップ</h3><br/>
   <div class="row">
   <% @news_feeds.each_with_index do |nf, i| %>
-    <div class="col-sm-4 col-md-3 ms-item">
+    <div class="col-sm-3 col-md-2 ms-item">
       <div class="thumbnail">
         <a href="<%=nf.news_url%>" target="_blank">
-          <img src="<%=nf.news_img_url%>" style="width:280px">
+          <img src="<%=nf.news_img_url%>" style="width:210px">
         </a>
         <div class="caption">
           <p><%=nf.title%></p>
         </div>
       </div>
     </div>
-    <% if (i+1)%4 == 0 %>
+    <% if (i+1)%5 == 0 %>
       </div>
       <div class="row">
     <% end %>
   <% end %>
   </div>
-  <% if NewsFeed.all.size > 12 %>
+  <% if NewsFeed.all.size > 5 %>
     <a href="<%=show_pickups_news_feeds_path%>">もっと見る</a>
   <% end %>
 
   <br/>
 
-  <h3>皆さんの意気込み</h3>
+  <h3>いまの気持ち　
+    <a href="<%=edit_user_info_path(current_user.user_info.id)%>">
+      <span class="glyphicon glyphicon-edit"></span> 編集
+    </a>
+  </h3>
   <table class="table table-bordered">
     <thead>
       <th style="width:100px;">名前</th>
-      <th style="">意気込み</th>
+      <th style="">いまの気持ち
+      </th>
     </thead>
     <tbody>
       <% @users.each do |u| %>

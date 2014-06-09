@@ -1,0 +1,71 @@
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<style>
+  svg { width: 380px; height: 240px; border: 1px solid black; }
+  .line { fill: none; stroke: black; }
+  .axis test {
+    font-family: sans-serif;
+    font-size: 11px;
+  }
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: black;
+  }
+  .axis_x line {
+    fill: none;
+    stroke: black;
+  }
+
+</style>
+
+<h1>折れ線グラフを表示</h1>
+<svg id="myGraph"></svg>
+
+
+
+<script type="text/javascript">
+<!--
+  var svgWidth = 320;
+  var svgHeight = 240;
+
+  var offsetX = 30;
+  var offsetY = 20;
+  var scale = 1.5;
+
+  var dataSet = [10, 47, 65, 8, 64, 99, 75, 22, 63, 80, 120];
+  var margin = svgWidth/(dataSet.length - 1);
+
+  var line = d3.svg.line()
+    .x(function(d, i){
+      return offsetX + i * margin;
+    })
+    .y(function(d, i){
+      return svgHeight - (d * scale) - offsetY;
+    })
+  var lineElements = d3.select("#myGraph")
+    .append("path")
+    .attr("class", "line")
+    .attr("d", line(dataSet))
+
+  var yScale = d3.scale.linear()
+    .domain([0, 100])
+    .range([scale*100, 0])
+
+  d3.select("#myGraph")
+      .append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(" + offsetX + ", " + ((100-(scale-1)*100)+offsetY) + ")")
+      .call(
+        d3.svg.axis()
+        .scale(yScale)
+        .orient("left")
+      )
+    d3.select("#myGraph")
+        .append("rect")
+        .attr("class", "axis_x")
+        .attr("width", svgWidth)
+        .attr("height", 1)
+        .attr("transform", "translate(" + offsetX + ", " + (svgHeight - offsetY - 0.5) + ")")
+
+// -->
+</script>
