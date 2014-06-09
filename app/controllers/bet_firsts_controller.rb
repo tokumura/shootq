@@ -7,6 +7,12 @@ class BetFirstsController < ApplicationController
     redirect_to user_root_path
   end
 
+  def show_everyones
+    @users = User.all.order("id")
+    @matchs = current_user.bet_firsts.order("id")
+    @bet_firsts = BetFirst.all.order("user_id")
+  end
+
   # GET /bet_firsts
   # GET /bet_firsts.json
   def index

@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :bet_firsts do
     collection do
       get :init
+      get :show_everyones
       post :bet
     end
   end
