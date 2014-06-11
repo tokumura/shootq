@@ -1,0 +1,96 @@
+<% if notice %>
+<div class="alert alert-success" style="margin-top:10px;">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
+<% end %>
+
+<h3>決勝トーナメント進出国を予想</h3>
+
+<%= form_tag('/bet_seconds/bet', :method => :post) do |f| %>
+  <%= fields_for @bet_second do |bs| %>
+  <table class="table table-border" style="width:50%;">
+    <thead>
+      <tr>
+        <th></th>
+        <th colspan="2"></th>
+      <tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><h4>Group A</h4></td>
+        <td>
+          <%= bs.select :a1, @group_a, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+        <td>
+          <%= bs.select :a2, @group_a, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+      <tr>
+      <tr>
+        <td><h4>Group B</h4></td>
+        <td>
+          <%= bs.select :b1, @group_b, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+        <td>
+          <%= bs.select :b2, @group_b, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+      <tr>
+      <tr>
+        <td><h4>Group C</h4></td>
+        <td>
+          <%= bs.select :c1, @group_c, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+        <td>
+          <%= bs.select :c2, @group_c, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+      <tr>
+      <tr>
+        <td><h4>Group D</h4></td>
+        <td>
+          <%= bs.select :d1, @group_d, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+        <td>
+          <%= bs.select :d2, @group_d, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+      <tr>
+      <tr>
+        <td><h4>Group E</h4></td>
+        <td>
+          <%= bs.select :e1, @group_e, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+        <td>
+          <%= bs.select :e2, @group_e, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+      <tr>
+      <tr>
+        <td><h4>Group F</h4></td>
+        <td>
+          <%= bs.select :f1, @group_f, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+        <td>
+          <%= bs.select :f2, @group_f, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+      <tr>
+      <tr>
+        <td><h4>Group G</h4></td>
+        <td>
+          <%= bs.select :g1, @group_g, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+        <td>
+          <%= bs.select :g2, @group_g, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+      <tr>
+      <tr>
+        <td><h4>Group H</h4></td>
+        <td>
+          <%= bs.select :h1, @group_h, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+        <td>
+          <%= bs.select :h2, @group_h, {}, :class => "form-control", :style => "width:150px;" %>
+        </td>
+      <tr>
+    </tbody>
+  </table>
+  <%= submit_tag "登　録", :class => "btn btn-primary" %>
+  <% end %>
+<% end %>

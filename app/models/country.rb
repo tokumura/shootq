@@ -18,7 +18,9 @@ class Country < ActiveRecord::Base
   end
 
   def self.get_name code
+    name = ""
     country = Country.find_by code: code
-    country.name
+    name = country.name if country != nil
+    name
   end
 end

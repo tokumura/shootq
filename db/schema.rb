@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606053518) do
+ActiveRecord::Schema.define(version: 20140611020218) do
 
   create_table "bet_firsts", force: true do |t|
     t.string   "match_code"
@@ -25,6 +25,28 @@ ActiveRecord::Schema.define(version: 20140606053518) do
     t.string   "dayofweek"
     t.string   "match_time"
     t.string   "group_name"
+  end
+
+  create_table "bet_seconds", force: true do |t|
+    t.string   "a1"
+    t.string   "a2"
+    t.string   "b1"
+    t.string   "b2"
+    t.string   "c1"
+    t.string   "c2"
+    t.string   "d1"
+    t.string   "d2"
+    t.string   "e1"
+    t.string   "e2"
+    t.string   "f1"
+    t.string   "f2"
+    t.string   "g1"
+    t.string   "g2"
+    t.string   "h1"
+    t.string   "h2"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "countries", force: true do |t|

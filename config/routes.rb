@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :news_feeds do
-    collection do
-      get :show_pickups
-    end
-  end
+  root :to => 'welcome#index'
+  resources :welcome, :only => ['index']
+  get :portals, :to => 'portals#index', :as => :user_root
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
   devise_for :users
 
   resources :user_infos do
@@ -17,13 +14,14 @@ Rails.application.routes.draw do
     end
   end
 
-  root :to => 'welcome#index'
-  resources :welcome, :only => ['index']
-  get :portals, :to => 'portals#index', :as => :user_root
-
   resources :portals
-
   resources :dashboard
+
+  resources :news_feeds do
+    collection do
+      get :show_pickups
+    end
+  end
 
   resources :bet_firsts do
     collection do
@@ -34,12 +32,19 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bet_seconds do
+    collection do
+      get :init
+      post :bet
+      get :show_everyones
+    end
+  end
+
   resources :countries do
     collection do
       get :init
     end
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

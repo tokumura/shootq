@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  a1: MyString
+  a2: MyString
+  b1: MyString
+  b2: MyString
+  c1: MyString
+  c2: MyString
+  d1: MyString
+  d2: MyString
+  e1: MyString
+  e2: MyString
+  f1: MyString
+  f2: MyString
+  g1: MyString
+  g2: MyString
+  h1: MyString
+  h2: MyString
+  user_id: 1
+
+two:
+  a1: MyString
+  a2: MyString
+  b1: MyString
+  b2: MyString
+  c1: MyString
+  c2: MyString
+  d1: MyString
+  d2: MyString
+  e1: MyString
+  e2: MyString
+  f1: MyString
+  f2: MyString
+  g1: MyString
+  g2: MyString
+  h1: MyString
+  h2: MyString
+  user_id: 1

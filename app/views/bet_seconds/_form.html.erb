@@ -1,0 +1,85 @@
+<%= form_for(@bet_second) do |f| %>
+  <% if @bet_second.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bet_second.errors.count, "error") %> prohibited this bet_second from being saved:</h2>
+
+      <ul>
+      <% @bet_second.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :a1 %><br>
+    <%= f.text_field :a1 %>
+  </div>
+  <div class="field">
+    <%= f.label :a2 %><br>
+    <%= f.text_field :a2 %>
+  </div>
+  <div class="field">
+    <%= f.label :b1 %><br>
+    <%= f.text_field :b1 %>
+  </div>
+  <div class="field">
+    <%= f.label :b2 %><br>
+    <%= f.text_field :b2 %>
+  </div>
+  <div class="field">
+    <%= f.label :c1 %><br>
+    <%= f.text_field :c1 %>
+  </div>
+  <div class="field">
+    <%= f.label :c2 %><br>
+    <%= f.text_field :c2 %>
+  </div>
+  <div class="field">
+    <%= f.label :d1 %><br>
+    <%= f.text_field :d1 %>
+  </div>
+  <div class="field">
+    <%= f.label :d2 %><br>
+    <%= f.text_field :d2 %>
+  </div>
+  <div class="field">
+    <%= f.label :e1 %><br>
+    <%= f.text_field :e1 %>
+  </div>
+  <div class="field">
+    <%= f.label :e2 %><br>
+    <%= f.text_field :e2 %>
+  </div>
+  <div class="field">
+    <%= f.label :f1 %><br>
+    <%= f.text_field :f1 %>
+  </div>
+  <div class="field">
+    <%= f.label :f2 %><br>
+    <%= f.text_field :f2 %>
+  </div>
+  <div class="field">
+    <%= f.label :g1 %><br>
+    <%= f.text_field :g1 %>
+  </div>
+  <div class="field">
+    <%= f.label :g2 %><br>
+    <%= f.text_field :g2 %>
+  </div>
+  <div class="field">
+    <%= f.label :h1 %><br>
+    <%= f.text_field :h1 %>
+  </div>
+  <div class="field">
+    <%= f.label :h2 %><br>
+    <%= f.text_field :h2 %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

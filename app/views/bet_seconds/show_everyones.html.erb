@@ -1,0 +1,60 @@
+<h3>予選リーグ　みんなの予想</h3>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th style="text-align:center;"></th>
+      <th style="text-align:center;">A</th>
+      <th style="text-align:center;">B</th>
+      <th style="text-align:center;">C</th>
+      <th style="text-align:center;">D</th>
+      <th style="text-align:center;">E</th>
+      <th style="text-align:center;">F</th>
+      <th style="text-align:center;">G</th>
+      <th style="text-align:center;">H</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |u| %>
+      <% bs = u.bet_second %>
+      <tr>
+        <td style="text-align:center;">
+          <%=u.user_info.name%>
+        </td>
+        <td style="text-align:center;">
+          <%=Country.get_name(bs.a1)%><br/>
+          <%=Country.get_name(bs.a2)%>
+        </td>
+        <td style="text-align:center;">
+          <%=Country.get_name(bs.b1)%><br/>
+          <%=Country.get_name(bs.b2)%>
+        </td>
+        <td style="text-align:center;">
+          <%=Country.get_name(bs.c1)%><br/>
+          <%=Country.get_name(bs.c2)%>
+        </td>
+        <td style="text-align:center;">
+          <%=Country.get_name(bs.d1)%><br/>
+          <%=Country.get_name(bs.d2)%>
+        </td>
+        <td style="text-align:center;">
+          <%=Country.get_name(bs.e1)%><br/>
+          <%=Country.get_name(bs.e2)%>
+        </td>
+        <td style="text-align:center;">
+          <%=Country.get_name(bs.f1)%><br/>
+          <%=Country.get_name(bs.f2)%>
+        </td>
+        <td style="text-align:center;">
+          <%=Country.get_name(bs.g1)%><br/>
+          <%=Country.get_name(bs.g2)%>
+        </td>
+        <td style="text-align:center;">
+          <%=Country.get_name(bs.h1)%><br/>
+          <%=Country.get_name(bs.h2)%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
