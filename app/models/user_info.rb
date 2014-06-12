@@ -2,6 +2,7 @@ class UserInfo < ActiveRecord::Base
   belongs_to :user
 
   def self.init
+=begin
     User.destroy_all
     UserInfo.destroy_all
 
@@ -20,5 +21,14 @@ class UserInfo < ActiveRecord::Base
       user_info.name = row[0][1].to_s
       user_info.save
     end
+=end
+  end
+
+  def self.get_name_shorten fullname
+    name = fullname[0,2]
+    if name == "奥村"
+      name = fullname[0,3]
+    end
+    name
   end
 end

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_date: MyString
+  dayofweek: MyString
+  match_time: MyString
+  group_name: MyString
+  match_code: MyString
+  score_l: MyString
+  score_r: MyString
+
+two:
+  match_date: MyString
+  dayofweek: MyString
+  match_time: MyString
+  group_name: MyString
+  match_code: MyString
+  score_l: MyString
+  score_r: MyString

@@ -13,6 +13,10 @@ class BetFirstsController < ApplicationController
     @bet_firsts = BetFirst.all.order("user_id")
   end
 
+  def get_score
+    BetFirst.get_score current_user.id
+  end
+
   def show_ranking
     labels = ""
     bet_firsts = current_user.bet_firsts.order("id")

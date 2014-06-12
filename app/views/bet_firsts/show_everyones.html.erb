@@ -12,8 +12,11 @@
 <table class="table table-hover">
   <thead class="">
     <td></td>
+    <td style="text-align:center">結果</td>
     <% @users.each do |u| %>
-      <td><%=u.user_info.name%></td>
+      <td style="text-align:center;">
+        <%= UserInfo.get_name_shorten(u.user_info.name) %>
+      </td>
     <% end %>
   </thead>
   <tbody>
@@ -21,14 +24,21 @@
     <% codes = m.match_code.split('-') %>
     <% country_l = Country.find_by(code: codes[0].to_s) %>
     <% country_r = Country.find_by(code: codes[1].to_s) %>
+    <% result_code = BetFirst.get_result_code(m.match_code) %>
     <tr>
       <td>
         <img src="http://img.fifa.com/images/flags/4/<%=country_l.flag %>.png" style="width:30px;"> -
         <img src="http://img.fifa.com/images/flags/4/<%=country_r.flag %>.png" style="width:30px;">
       </td>
+      <td style="text-align:center">
+        <% result = ResultFirst.find_by match_code: m.match_code %>
+        <%=result.score_l%> - <%=result.score_r%>
+      </td>
       <% @users.each do |u| %>
         <% bets = BetFirst.where("match_code = ? AND user_id = ?", m.match_code, u.id.to_s).first %>
-        <td><%=bets.score_l%> - <%=bets.score_r%></td>
+        <% bet_code = BetFirst.get_bet_code(m.match_code, u.id) %>
+        <% bgcolor = BetFirst.get_bgcolor(bet_code, result_code) %>
+        <td style="text-align:center; background:<%=bgcolor%>"><%=bets.score_l%> - <%=bets.score_r%></td>
       <% end %>
     </tr>
     <% if i % name_row_insert == 0 && i / name_row_insert > 0 %>

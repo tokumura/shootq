@@ -1,0 +1,44 @@
+<canvas id="myChart" width="800" height="600"></canvas>
+
+<script type="text/javascript">
+<!--
+//alert("<%=@lbs%>");
+var data = {
+labels : ["BRA-HRV","MEX-CME","ESP-NLD","CHL-AUS","COL-GRC","URY-CRI","ENG-ITA","CIV-JPN","CHE-ECU","FRA-HND","ARG-BIH","DEU-PRT","IRN-NGA","GHA-USA","BEL-DZA","BRA-MEX","RUS-KOR","AUS-NLD","ESP-CHL","CME-HRV","COL-CIV","URY-ENG","JPN-GRC","ITA-CRI","CHE-FRA","HND-ECU","ARG-IRN","DEU-GHA","NGA-BIH","BEL-RUS","KOR-DZA","USA-PRT","AUS-ESP","NLD-CHL","CME-BRA","HRV-MEX","ITA-URY","CRI-ENG","JPN-COL","GRC-CIV","NGA-ARG","BIH-IRN","HND-CHE","ECU-FRA","USA-DEU","PRT-GHA","KOR-BEL","DZA-RUS"],
+    datasets : <%= JSON.generate(@graph_data).html_safe %>
+/*
+      [{
+        fillColor : "rgba(255,255,255,0)",
+        strokeColor : "rgba(220,220,220,1)",
+        pointColor : "rgba(220,220,220,1)",
+        pointStrokeColor : "#fff",
+        data : [0,3,2,1,11,6,12]
+      },
+      {
+        fillColor : "rgba(255,255,255,0)",
+        strokeColor : "rgba(220,0,0,1)",
+        pointColor : "rgba(220,0,0,1)",
+        pointStrokeColor : "#f00",
+        data : [10,4,9,3,7,6,2]
+      }]
+*/
+  }
+
+var options = {
+  scaleOverride : true,
+  scaleSteps : 12,
+  scaleStepWidth : 1,
+  scaleShowLabels : false,
+  bezierCurve : true,
+  //scaleLabel : 13,12,11,10,9,8,7,6,5,4,3,2,1,
+  animation: true
+}
+
+var canvas = document.getElementById("myChart");
+canvas.width = $("#graph_area").width() * 0.9;
+canvas.height = $("#graph_area").height() * 0.8;
+var ctx = canvas.getContext("2d");
+var myNewChart = new Chart(ctx).Line(data, options);
+// -->
+</script>
+

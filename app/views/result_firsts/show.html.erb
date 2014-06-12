@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Match date:</strong>
+  <%= @result_first.match_date %>
+</p>
+
+<p>
+  <strong>Dayofweek:</strong>
+  <%= @result_first.dayofweek %>
+</p>
+
+<p>
+  <strong>Match time:</strong>
+  <%= @result_first.match_time %>
+</p>
+
+<p>
+  <strong>Group name:</strong>
+  <%= @result_first.group_name %>
+</p>
+
+<p>
+  <strong>Match code:</strong>
+  <%= @result_first.match_code %>
+</p>
+
+<p>
+  <strong>Score l:</strong>
+  <%= @result_first.score_l %>
+</p>
+
+<p>
+  <strong>Score r:</strong>
+  <%= @result_first.score_r %>
+</p>
+
+<%= link_to 'Edit', edit_result_first_path(@result_first) %> |
+<%= link_to 'Back', result_firsts_path %>

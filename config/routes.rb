@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     collection do
       get :init
       get :show_everyones
+      get :get_score
       get :show_ranking
       post :bet
     end
@@ -37,6 +38,12 @@ Rails.application.routes.draw do
       get :init
       post :bet
       get :show_everyones
+    end
+  end
+
+  resources :result_firsts do
+    collection do
+      get :init
     end
   end
 

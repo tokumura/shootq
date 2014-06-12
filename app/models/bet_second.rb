@@ -2,6 +2,7 @@ class BetSecond < ActiveRecord::Base
   belongs_to :user
 
   def self.init
+=begin
     BetSecond.destroy_all
     users = User.all
     users.each do |u|
@@ -25,5 +26,6 @@ class BetSecond < ActiveRecord::Base
       bet.user_id = u.id
       bet.save
     end
+=end
   end
 end
