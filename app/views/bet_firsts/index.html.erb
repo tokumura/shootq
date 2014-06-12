@@ -25,6 +25,12 @@
         <% country_r = Country.find_by(code: codes[1].to_s) %>
         <% match_date = bet_first.match_date[1..1] + "/" + bet_first.match_date[2..3] %>
         <% points = (0..10).to_a %>
+        <% disabled = "" %>
+        <% kickoff_time = DateTime.parse(bet_first.match_date + " " + bet_first.match_time) %>
+        <% now = DateTime.now %>
+        <% if kickoff_time >= now %>
+          <% disabled = "disabled ='disabled' " %>
+        <% end %>
         <tr>
           <td>
             <%= match_date %>(<%=bet_first.dayofweek%>)
