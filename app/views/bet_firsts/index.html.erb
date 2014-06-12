@@ -9,7 +9,6 @@
 
 <% now = DateTime.now %>
 <% now = now + 9.hours if Time.zone.now.zone != "JST" %>
-<%=now%> / <%=Time.zone.now.zone%>
 
 <%= form_tag('/bet_firsts/bet', :method => :post) do |f| %>
   <%= submit_tag "登　録", :class => "btn btn-primary" %>
@@ -21,7 +20,8 @@
       </tr>
     </thead>
 
-    <input type="hidden" value="<%=Time.zone.now.zone%>">
+    <input type="hidden" id="tz" value="<%=Time.zone.now.zone%>">
+    <input type="hidden" id="now" value="<%=now%>">
 
     <tbody>
       <% @bet_firsts.each_with_index do |bet_first, i| %>
@@ -48,12 +48,9 @@
           </td>
           <td>
             <%= bf.select :score_l, points, {}, :index => i, :class => "form-control", :style => "width:70px;", :disabled => disabled %>
-            <% if disabled %>
-            <% else %>
-            <% end %>
           </td>
           <td>
-            <%= bf.select :score_r, points, {}, :index => i, :class => "form-control", :style => "width:70px;" %>
+            <%= bf.select :score_r, points, {}, :index => i, :class => "form-control", :style => "width:70px;", :disabled => disabled %>
           </td>
           <td style="text-align:center; font-size:8px;">
             <img src="http://img.fifa.com/images/flags/4/<%=country_r.flag %>.png" style="width:50px;"><br/>
