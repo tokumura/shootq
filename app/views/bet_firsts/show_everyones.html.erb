@@ -38,14 +38,15 @@
         <% bets = BetFirst.where("match_code = ? AND user_id = ?", m.match_code, u.id.to_s).first %>
         <% bet_code = BetFirst.get_bet_code(m.match_code, u.id) %>
         <% bgcolor = BetFirst.get_bgcolor(bet_code, result_code) %>
-        <td style="text-align:center; background:<%=bgcolor%>"><%=bets.score_l%> - <%=bets.score_r%></td>
+        <td style="text-align:center; <%=bgcolor%>"><%=bets.score_l%> - <%=bets.score_r%></td>
       <% end %>
     </tr>
     <% if i % name_row_insert == 0 && i / name_row_insert > 0 %>
     <tr>
       <td></td>
+      <td style="text-align:center">結果</td>
       <% @users.each do |u| %>
-        <td><%=u.user_info.name%></td>
+        <td style="text-align:center"><%=UserInfo.get_name_shorten(u.user_info.name)%></td>
       <% end %>
     </tr>
     <% end %>

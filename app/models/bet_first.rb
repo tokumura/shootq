@@ -43,12 +43,12 @@ class BetFirst < ActiveRecord::Base
   end
 
   def self.get_bgcolor bet_code, result_code
-    color = "#fff"
+    color = ""
     if bet_code.size >= 3
       if result_code[0,1] == bet_code[0,1]
-        color = "#98fb98"
+        color = "background:#98fb98"
         if result_code[1..2] == bet_code[1..2]
-          color = "#ff8e8e"
+          color = "background:#ff8e8e"
         end
       end
     end
