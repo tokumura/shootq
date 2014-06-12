@@ -9,7 +9,7 @@ class ResultFirstsController < ApplicationController
   # GET /result_firsts
   # GET /result_firsts.json
   def index
-    @result_firsts = ResultFirst.all
+    @result_firsts = ResultFirst.all.order("id")
   end
 
   # GET /result_firsts/1
