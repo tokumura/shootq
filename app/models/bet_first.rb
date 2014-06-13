@@ -55,16 +55,16 @@ class BetFirst < ActiveRecord::Base
         }
 
         user = User.find_by id: user_id
-        rank = 1
+        rank = 0
         score_list.each_with_index do |s, i|
-          if user.user_info.name == s[0].to_s
-            history << (rank - 13).abs
-          end
           rank = rank + 1
           if i > 0
             if score_list[i-1][0] == s[0]
               rank = rank - 1
             end
+          end
+          if user.user_info.name == s[0].to_s
+            history << (rank - 13).abs
           end
         end
       end
