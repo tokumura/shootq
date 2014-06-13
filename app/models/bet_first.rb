@@ -59,7 +59,7 @@ class BetFirst < ActiveRecord::Base
         score_list.each_with_index do |s, i|
           if i > 0
             rank = rank + 1
-            if score_list[i-1][0] == s[0]
+            if score_list[i-1][1] == s[1]
               rank = rank - 1
             end
           end
