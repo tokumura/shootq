@@ -11,6 +11,10 @@ class BetFirstsController < ApplicationController
     @users = User.all.order("id")
     @matchs = current_user.bet_firsts.order("id")
     @bet_firsts = BetFirst.all.order("user_id")
+    @results = Hash.new
+    BetFirst.order("id").each do |r|
+      @results.store(r.match_code, BetFirst.get_result_code(r.match_code))
+    end
   end
 
   def get_score

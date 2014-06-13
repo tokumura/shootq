@@ -24,7 +24,7 @@
     <% codes = m.match_code.split('-') %>
     <% country_l = Country.find_by(code: codes[0].to_s) %>
     <% country_r = Country.find_by(code: codes[1].to_s) %>
-    <% result_code = BetFirst.get_result_code(m.match_code) %>
+    <% result_code = @results[m.match_code] %>
     <tr>
       <td>
         <img src="http://img.fifa.com/images/flags/4/<%=country_l.flag %>.png" style="width:30px;"> -
