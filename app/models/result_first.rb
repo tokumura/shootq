@@ -1,6 +1,7 @@
 class ResultFirst < ActiveRecord::Base
 
   def self.init
+=begin
     ResultFirst.destroy_all
     File.foreach("#{Rails.root}/public/bet_first.csv") do |line|
       row = CSV.parse(line)
@@ -14,6 +15,7 @@ class ResultFirst < ActiveRecord::Base
       result.score_r = ""
       result.save
     end
+=end
   end
 
 end

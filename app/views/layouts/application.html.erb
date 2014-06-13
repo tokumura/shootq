@@ -19,6 +19,19 @@
   if(ua.include?('Mobile') || ua.include?('Android'))
     pull = "pull-right"
   end
+
+  active_dboard = ""
+  active_bet = ""
+  active_every = ""
+
+  if request.path_info.index("/dashboard") != nil
+    active_dboard = "active"
+  elsif request.path_info.index("/show_every") != nil
+    active_every = "active"
+  elsif request.path_info.index("/bet_") != nil
+    active_bet = "active"
+  end
+
 %>
 
 <div class="container-fluid">
@@ -35,8 +48,8 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav <%=pull%>">
-        <li><a href="#">ダッシュボード</a></li>
-        <li class="dropdown">
+        <li class="<%=active_dboard%>"><a href="<%=dashboard_index_path%>">ダッシュボード</a></li>
+        <li class="dropdown <%=active_bet%>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">予想する<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<%=bet_firsts_path%>">Part 1：予選リーグ結果</a></li>
@@ -44,7 +57,7 @@
             <li><a href="#">Part 3：決勝トーナメント結果</a></li>
           </ul>
         </li>
-        <li class="dropdown">
+        <li class="dropdown <%=active_every%>">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">みんなの予想<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<%=show_everyones_bet_firsts_path%>">Part 1：予選リーグ結果</a></li>

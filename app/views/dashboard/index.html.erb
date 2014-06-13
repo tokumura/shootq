@@ -7,22 +7,30 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>名前</th>
               <th>順位</th>
+              <th>名前</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
+            <% prev = "" %>
+            <% rank = 1 %>
             <% @score_list.each do |s| %>
+              <% if prev != "" && s[1].to_s != prev %>
+                <% rank = rank + 1 %>
+              <% end %>
               <tr>
+                <td><%=rank%></td>
                 <td><%=s[0]%></td>
                 <td><%=s[1]%> pt</td>
               </tr>
+              <% prev = s[1].to_s %>
             <% end %>
           </tbody>
         </table>
       </div>
       <div class="col-xs-12 col-md-10" id="graph_area">
-        <h4>順位変動</h4>
+        <h4><%=current_user.user_info.name%>さんの順位推移</h4>
         <%= render 'ranking_graph' %>
       </div>
     </div>

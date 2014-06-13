@@ -34,7 +34,7 @@
         <% disabled = false %>
         <% kickoff_time = DateTime.parse(bet_first.match_date + " " + bet_first.match_time) %>
         <% if kickoff_time <= now %>
-          <% disabled = true %>
+          <% disabled = false%>
         <% end %>
         <tr>
           <td>

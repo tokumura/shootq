@@ -15,15 +15,17 @@ class DashboardController < ApplicationController
       b[1] <=> a[1]
     }
 
+    ranking_history = BetFirst.get_ranking_history(current_user.id)
+
     @graph_data = Array.new
     hash = Hash.new
     hash.store("fillColor", "rgba(255,255,255,0)")
-    hash.store("strokeColor", "rgba(220,220,220,1)")
-    hash.store("pointColor", "rgba(220,220,220,1)")
-    hash.store("pointStrokeColor", "#fff")
-    hash.store("data", [3,5,7,8,5,3,7,8,2])
+    hash.store("strokeColor", "#dc143c")
+    hash.store("pointColor", "#dc143c")
+    hash.store("pointStrokeColor", "#f00")
+    hash.store("data", ranking_history)
     @graph_data << hash
-    puts @graph_data
+
   end
 end
 
