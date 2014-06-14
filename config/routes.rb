@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   end
 
   resources :portals
-  resources :dashboard
+
+  resources :dashboard do
+    collection do
+      get :load_graph
+    end
+  end
 
   resources :news_feeds do
     collection do

@@ -30,9 +30,29 @@
         </table>
       </div>
       <div class="col-xs-12 col-md-10" id="graph_area">
-        <h4><%=current_user.user_info.name%>さんの順位推移</h4>
-        <%= render 'ranking_graph' %>
+        <h4 style="display:inline" id="graph_owner">
+          <%=current_user.user_info.name%>さんの順位推移　　
+        </h4>
+        <%= select :ranking, :user_id, @usernames, {}, {:id => "changeto", :style => "width:80px;", :onchange => "change_view()"} %>さんの順位推移を見る
+        <div id="graph_canvas" style="margin-top:10px;">
+          <%= render 'ranking_graph' %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+<!--
+  function change_view() {
+    var user_id = $("#changeto").val();
+    if (user_id != '0') {
+      $.ajax({
+        type: "GET",
+        url: "<%=load_graph_dashboard_index_path%>?user_id=" + user_id
+      });
+    }
+  }
+// -->
+</script>
+

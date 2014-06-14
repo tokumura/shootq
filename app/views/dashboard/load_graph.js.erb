@@ -1,0 +1,5 @@
+$('#graph_canvas').html(
+  "<%= escape_javascript(render :partial => 'ranking_graph') %>"
+);
+
+$('#graph_owner').html("<%=@owner%>さんの順位推移　　");

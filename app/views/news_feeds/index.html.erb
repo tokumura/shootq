@@ -15,7 +15,7 @@
       <tr>
         <td><%= news_feed.title %></td>
         <td><a href="<%= news_feed.news_url %>" target="_blank">link</a></td>
-        <td><img src="<%= news_feed.news_img_url %>" style="width:200px;"></td>
+        <td><img src="<%= news_feed.news_img_url %>" style="width:80px;"></td>
         <td><%= link_to 'Show', news_feed %></td>
         <td><%= link_to 'Edit', edit_news_feed_path(news_feed) %></td>
         <td><%= link_to 'Destroy', news_feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>

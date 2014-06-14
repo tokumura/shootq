@@ -26,6 +26,29 @@ class DashboardController < ApplicationController
     hash.store("data", ranking_history)
     @graph_data << hash
 
+    users = User.order("id")
+    @usernames = Hash.new
+    @usernames.store("", 0)
+    users.each do |u|
+      @usernames.store(u.user_info.name, u.id.to_s)
+    end
+  end
+
+  def load_graph
+    user_id = params["user_id"]
+    user = User.find_by id: user_id.to_i
+    @owner = user.user_info.name
+
+    ranking_history = BetFirst.get_ranking_history(user.id.to_i)
+
+    @graph_data = Array.new
+    hash = Hash.new
+    hash.store("fillColor", "rgba(255,255,255,0)")
+    hash.store("strokeColor", "#dc143c")
+    hash.store("pointColor", "#dc143c")
+    hash.store("pointStrokeColor", "#f00")
+    hash.store("data", ranking_history)
+    @graph_data << hash
   end
 end
 
