@@ -106,11 +106,11 @@ class BetFirst < ActiveRecord::Base
     rf = ResultFirst.find_by match_code: match_code
     if rf.score_l != "" && rf.score_r != ""
       if rf.score_l.to_i > rf.score_r.to_i
-        result = "l" + rf.score_l + rf.score_r
+        result = "l" + rf.score_l.to_s + rf.score_r.to_s
       elsif rf.score_l.to_i < rf.score_r.to_i
-        result = "r" + rf.score_l + rf.score_r
+        result = "r" + rf.score_l.to_s + rf.score_r.to_s
       else
-        result = "d" + rf.score_l + rf.score_r
+        result = "d" + rf.score_l.to_s + rf.score_r.to_s
       end
     end
     result
@@ -120,11 +120,11 @@ class BetFirst < ActiveRecord::Base
     bet = ""
     bt = BetFirst.where("match_code = ? AND user_id = ?", match_code, user_id.to_s).first
     if bt.score_l.to_i > bt.score_r.to_i
-      bet = "l" + bt.score_l + bt.score_r
+      bet = "l" + bt.score_l.to_s + bt.score_r.to_s
     elsif bt.score_l.to_i < bt.score_r.to_i
-      bet = "r" + bt.score_l + bt.score_r
+      bet = "r" + bt.score_l.to_s + bt.score_r.to_s
     else
-      bet = "d" + bt.score_l + bt.score_r
+      bet = "d" + bt.score_l.to_s + bt.score_r.to_s
     end
     bet
   end
