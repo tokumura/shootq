@@ -34,7 +34,7 @@
         <% disabled = false %>
         <% kickoff_time = DateTime.parse(bet_first.match_date + " " + bet_first.match_time) %>
         <% if kickoff_time <= now %>
-          <% disabled = true %>
+          <% #disabled = true %>
         <% end %>
         <tr>
           <td>
@@ -47,9 +47,11 @@
             <%= country_l.name %>
           </td>
           <td>
+            <%= bf.hidden_field :score_l, :index => i %>
             <%= bf.select :score_l, points, {}, :index => i, :class => "form-control", :style => "width:70px;", :disabled => disabled %>
           </td>
           <td>
+            <%= bf.hidden_field :score_r, :index => i %>
             <%= bf.select :score_r, points, {}, :index => i, :class => "form-control", :style => "width:70px;", :disabled => disabled %>
           </td>
           <td style="text-align:center; font-size:8px;">
