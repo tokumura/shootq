@@ -26,7 +26,9 @@ class UserInfo < ActiveRecord::Base
 
   def self.get_name_shorten fullname
     name = fullname[0,2]
-    if name == "奥村"
+    if name == "奥村" 
+      name = fullname[0,3]
+    elsif name == "田中" 
       name = fullname[0,3]
     end
     name
