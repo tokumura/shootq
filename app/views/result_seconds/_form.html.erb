@@ -1,0 +1,25 @@
+<%= form_for(@result_second) do |f| %>
+  <% if @result_second.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@result_second.errors.count, "error") %> prohibited this result_second from being saved:</h2>
+
+      <ul>
+      <% @result_second.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :group_name %><br>
+    <%= f.text_field :group_name %>
+  </div>
+  <div class="field">
+    <%= f.label :countries %><br>
+    <%= f.text_field :countries %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

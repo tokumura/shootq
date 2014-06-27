@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :result_seconds do
+    collection do
+      get :init
+    end
+  end
+
   root :to => 'welcome#index'
   resources :welcome, :only => ['index']
   get :portals, :to => 'portals#index', :as => :user_root

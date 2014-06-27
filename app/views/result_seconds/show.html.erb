@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Group name:</strong>
+  <%= @result_second.group_name %>
+</p>
+
+<p>
+  <strong>Countries:</strong>
+  <%= @result_second.countries %>
+</p>
+
+<%= link_to 'Edit', edit_result_second_path(@result_second) %> |
+<%= link_to 'Back', result_seconds_path %>

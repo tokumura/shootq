@@ -15,41 +15,68 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align:center;">結果</td>
+      <td style="text-align:center;">ブラジル<br/>メキシコ</td>
+      <td style="text-align:center;">オランダ<br/>チリ</td>
+      <td style="text-align:center;">コロンビア<br/>ギリシャ</td>
+      <td style="text-align:center;">コスタリカ<br/>ウルグアイ</td>
+      <td style="text-align:center;">フランス<br/>スイス</td>
+      <td style="text-align:center;">アルゼンチン<br/>ナイジェリア</td>
+      <td style="text-align:center;">ドイツ<br/>アメリカ</td>
+      <td style="text-align:center;">ベルギー<br/>アルジェリア</td>
+    <tr/>
     <% @users.each do |u| %>
       <% bs = u.bet_second %>
       <tr>
         <td style="text-align:center;">
           <%=u.user_info.name%>
         </td>
-        <td style="text-align:center;">
+
+        <% color = BetSecond.get_color("a", u.id.to_s) %>
+        <td style="text-align:center; background:<%=color%>">
           <%=Country.get_name(bs.a1)%><br/>
           <%=Country.get_name(bs.a2)%>
         </td>
-        <td style="text-align:center;">
+
+        <% color = BetSecond.get_color("b", u.id.to_s) %>
+        <td style="text-align:center; background:<%=color%>">
           <%=Country.get_name(bs.b1)%><br/>
           <%=Country.get_name(bs.b2)%>
         </td>
-        <td style="text-align:center;">
+
+        <% color = BetSecond.get_color("c", u.id.to_s) %>
+        <td style="text-align:center; background:<%=color%>">
           <%=Country.get_name(bs.c1)%><br/>
           <%=Country.get_name(bs.c2)%>
         </td>
-        <td style="text-align:center;">
+
+        <% color = BetSecond.get_color("d", u.id.to_s) %>
+        <td style="text-align:center; background:<%=color%>">
           <%=Country.get_name(bs.d1)%><br/>
           <%=Country.get_name(bs.d2)%>
         </td>
-        <td style="text-align:center;">
+
+        <% color = BetSecond.get_color("e", u.id.to_s) %>
+        <td style="text-align:center; background:<%=color%>">
           <%=Country.get_name(bs.e1)%><br/>
           <%=Country.get_name(bs.e2)%>
         </td>
-        <td style="text-align:center;">
+
+        <% color = BetSecond.get_color("f", u.id.to_s) %>
+        <td style="text-align:center; background:<%=color%>">
           <%=Country.get_name(bs.f1)%><br/>
           <%=Country.get_name(bs.f2)%>
         </td>
-        <td style="text-align:center;">
+
+        <% color = BetSecond.get_color("g", u.id.to_s) %>
+        <td style="text-align:center; background:<%=color%>">
           <%=Country.get_name(bs.g1)%><br/>
           <%=Country.get_name(bs.g2)%>
         </td>
-        <td style="text-align:center;">
+
+        <% color = BetSecond.get_color("h", u.id.to_s) %>
+        <td style="text-align:center; background:<%=color%>">
           <%=Country.get_name(bs.h1)%><br/>
           <%=Country.get_name(bs.h2)%>
         </td>

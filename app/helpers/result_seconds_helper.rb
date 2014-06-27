@@ -1,0 +1,2 @@
+module ResultSecondsHelper
+end

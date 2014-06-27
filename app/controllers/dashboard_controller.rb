@@ -6,6 +6,8 @@ class DashboardController < ApplicationController
     users = User.all
     users.each do |u|
       score = BetFirst.get_score u.id
+      score_2 = BetSecond.get_score u.id
+      score = score + score_2
       score_info = Array.new
       score_info << u.user_info.name
       score_info << score.to_i
