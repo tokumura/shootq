@@ -36,7 +36,7 @@ class TournamentFirstsController < ApplicationController
   end
 
   def init
-    TournamentFirst.init
+    #TournamentFirst.init
     redirect_to user_root_path
   end
 

@@ -2,6 +2,7 @@ class TournamentFirst < ActiveRecord::Base
   belongs_to :user
 
   def self.init
+=begin
     matches = Array.new
     matches << "6/29 1:00,BRA-CHL"
     matches << "6/29 5:00,COL-URY"
@@ -26,5 +27,6 @@ class TournamentFirst < ActiveRecord::Base
         tm.save
       end
     end
+=end
   end
 end

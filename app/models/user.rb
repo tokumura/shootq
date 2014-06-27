@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :bet_firsts
   has_one :bet_second
   has_many :tournament_firsts
+  has_one :bet_winner
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

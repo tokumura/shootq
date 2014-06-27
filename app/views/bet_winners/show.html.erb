@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Winner first:</strong>
+  <%= @bet_winner.winner_first %>
+</p>
+
+<p>
+  <strong>Winner second:</strong>
+  <%= @bet_winner.winner_second %>
+</p>
+
+<p>
+  <strong>Winner third:</strong>
+  <%= @bet_winner.winner_third %>
+</p>
+
+<%= link_to 'Edit', edit_bet_winner_path(@bet_winner) %> |
+<%= link_to 'Back', bet_winners_path %>
