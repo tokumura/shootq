@@ -1,36 +1,41 @@
 <h3>優勝・準優勝・３位　予想</h3>
 
-<%= form_tag('/bet_winners/bet', :method => :post) do |f| %>
-  <%= fields_for @bet_winner do |bw| %>
-  <table class="table table-border" style="width:50%;">
-    <thead>
-      <tr>
-        <th></th>
-        <th colspan="3"></th>
-      <tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td>優勝</td>
-        <td>準優勝</td>
-        <td>３位</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <%= bw.select :winner_first, @countries, {}, :class => "form-control", :style => "width:150px;" %>
-        </td>
-        <td>
-          <%= bw.select :winner_second, @countries, {}, :class => "form-control", :style => "width:150px;" %>
-        </td>
-        <td>
-          <%= bw.select :winner_third, @countries, {}, :class => "form-control", :style => "width:150px;" %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <%= submit_tag "登　録", :class => "btn btn-primary", :disabled => false %>
-  <% end %>
+<div class="row">
+  <div class="col-md-3">
+    <%= form_tag('/bet_winners/bet', :method => :post) do |f| %>
+      <%= fields_for @bet_winner do |bw| %>
+      <table class="table table-border" style="width:100%;">
+        <thead>
+          <tr>
+            <th></th>
+          <tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              優勝<br/>
+              <%= bw.select :winner_first, @countries, {}, :class => "form-control", :style => "width:150px;" %>
+              <br/>
+              準優勝<br/>
+              <%= bw.select :winner_second, @countries, {}, :class => "form-control", :style => "width:150px;" %>
+              <br/>
+              ３位<br/>
+              <%= bw.select :winner_third, @countries, {}, :class => "form-control", :style => "width:150px;" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= submit_tag "登　録", :class => "btn btn-primary", :disabled => false %>
+      <% end %>
+  </div>
+  <div class="col-md-6">
+    <br/>
+    <br/>
+    <img src="../img/tm1.png" style="width:90%;"><br/>
+    <br/>
+    <br/>
+  </div>
+</div>
+
 <% end %>
 
