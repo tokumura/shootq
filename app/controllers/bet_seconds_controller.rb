@@ -1,5 +1,6 @@
 class BetSecondsController < ApplicationController
   before_action :set_bet_second, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /bet_seconds
   # GET /bet_seconds.json

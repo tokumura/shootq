@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :tournament_firsts do
+    collection do 
+      get :init
+      post :bet
+      get :show_everyones
+    end
+  end
+
   resources :result_seconds do
     collection do
       get :init

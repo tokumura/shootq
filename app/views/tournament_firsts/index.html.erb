@@ -1,0 +1,68 @@
+<% now = DateTime.now %>
+<% now = now + 9.hours if Time.zone.now.zone != "JST" %>
+
+<h1>ベスト１６試合予想</h1>
+
+<div class="row">
+    <div class="col-md-6">
+      <%= form_tag('/tournament_firsts/bet', :method => :post) do |f| %>
+        <%= submit_tag "登　録", :class => "btn btn-primary" %>
+        <table class="table table-hover" style="width:90%;">
+          <thead>
+            <tr>
+              <th style="font-size:11px;">試合日時</th>
+              <th colspan="5"></th>
+            </tr>
+          </thead>
+
+          <input type="hidden" id="tz" value="<%=Time.zone.now.zone%>">
+          <input type="hidden" id="now" value="<%=now%>">
+
+          <tbody>
+            <% @tournament_firsts.each_with_index do |tournament_first, i| %>
+              <%= fields_for tournament_first do |tf| %>
+              <% codes = tournament_first.match_code.split('-') %>
+              <% country_l = Country.find_by(code: codes[0].to_s) %>
+              <% country_r = Country.find_by(code: codes[1].to_s) %>
+              <% match_date = tournament_first.match_date %>
+              <% points = (0..10).to_a %>
+              <% disabled = false %>
+              <% kickoff_time = DateTime.parse(match_date) %>
+              <% if kickoff_time <= now %>
+                <% disabled = true %>
+              <% end %>
+              <tr>
+                <td style="font-size:11px;"><%=match_date%></td>
+                <td></td>
+
+                <td style="text-align:center; font-size:8px;">
+                  <img src="http://img.fifa.com/images/flags/4/<%=country_l.flag %>.png" style="width:50px;"><br/>
+                  <%= country_l.name %>
+                </td>
+                <td>
+                  <%= tf.hidden_field :score_l, :index => i %>
+                  <%= tf.select :score_l, points, {}, :index => i, :class => "form-control", :style => "width:70px;", :disabled => disabled %>
+                </td>
+                <td>
+                  <%= tf.hidden_field :score_r, :index => i %>
+                  <%= tf.select :score_r, points, {}, :index => i, :class => "form-control", :style => "width:70px;", :disabled => disabled %>
+                </td>
+                <td style="text-align:center; font-size:8px;">
+                  <img src="http://img.fifa.com/images/flags/4/<%=country_r.flag %>.png" style="width:50px;"><br/>
+                  <%= country_r.name %>
+                </td>
+                <%= tf.hidden_field :match_code, {:index => i}%>
+              </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+        <%= submit_tag "登　録", :class => "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div class="col-md-6" style="margin-top:50px; margin-bottom:50px;">
+      <img src="../img/tm1.png" style="width:90%;"><br/>
+    </div>
+</div>
+
+
