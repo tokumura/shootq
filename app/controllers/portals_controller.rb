@@ -8,6 +8,22 @@ class PortalsController < ApplicationController
     @portals = Portal.all
     @users = User.all.order("id")
     @news_feeds = NewsFeed.order("id DESC").limit(12)
+
+    @score_list = Array.new
+    temp_list = Array.new
+    users = User.all
+    users.each do |u|
+      score = BetFirst.get_score u.id
+      score_2 = BetSecond.get_score u.id
+      score = score + score_2
+      score_info = Array.new
+      score_info << u.user_info.name
+      score_info << score.to_i
+      temp_list << score_info
+    end
+    @score_list = temp_list.sort{|a,b|
+      b[1] <=> a[1]
+    }
   end
 
   # GET /portals/1

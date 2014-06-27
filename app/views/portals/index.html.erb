@@ -6,9 +6,17 @@
 =end
 %>
   <br/>
-  <div class="alert alert-info">
-    <p>ダッシュボードページをオープンしました！ <a href="<%=dashboard_index_path%>">こちら</a></p>
-  </div>
+  <ul id="ticker01" style="width:100%;">
+    <% prev = "" %>
+    <% rank = 1 %>
+    <% @score_list.each do |s| %>
+      <% if prev != "" && s[1].to_s != prev %>
+        <% rank = rank + 1 %>
+      <% end %>
+      <li><span><%=rank%>位 <%=s[0]%> ( <%=s[1]%> pt )　　</span></li>
+      <% prev = s[1].to_s %>
+    <% end %>
+  </ul>
 
   <h3>ニュースピックアップ</h3><br/>
   <div class="row">
@@ -56,3 +64,47 @@
     </tbody>
   </table>
 </div>
+
+
+
+<script type="text/javascript">
+<!--
+jQuery.fn.liScroll = function(settings) {
+  settings = jQuery.extend({
+    travelocity: 0.07
+  }, settings);        
+  return this.each(function(){
+    var $strip = jQuery(this);
+    $strip.addClass("newsticker")
+    var stripWidth = 1;
+    $strip.find("li").each(function(i){
+      stripWidth += jQuery(this, i).outerWidth(true); // thanks to Michael Haszprunar and Fabien Volpi
+    });
+    var $mask = $strip.wrap("<div class='mask'></div>");
+    var $tickercontainer = $strip.parent().wrap("<div class='tickercontainer'></div>");                                
+    var containerWidth = $strip.parent().parent().width();    //a.k.a. 'mask' width     
+    $strip.width(stripWidth);            
+    var totalTravel = stripWidth+containerWidth;
+    var defTiming = totalTravel/settings.travelocity;    // thanks to Scott Waye        
+    function scrollnews(spazio, tempo){
+      $strip.animate({left: '-='+ spazio}, tempo, "linear", function(){$strip.css("left", containerWidth); scrollnews(totalTravel, defTiming);});
+    }
+    scrollnews(totalTravel, defTiming);                
+    $strip.hover(function(){
+      jQuery(this).stop();
+    },
+
+    function(){
+      var offset = jQuery(this).offset();
+      var residualSpace = offset.left + stripWidth;
+      var residualTime = residualSpace/settings.travelocity;
+      scrollnews(residualSpace, residualTime);
+    });            
+  });    
+};
+
+$(function(){
+    $("ul#ticker01").liScroll({travelocity: 0.07});
+});
+// -->
+</script>
