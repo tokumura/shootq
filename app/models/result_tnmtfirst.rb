@@ -16,8 +16,8 @@ class ResultTnmtfirst < ActiveRecord::Base
       info = m.split(",")
       rtf = ResultTnmtfirst.new
       rtf.match_code = info[1]
-      rtf.score_l = (rand(4) + 1).to_s
-      rtf.score_r = (rand(4) + 1).to_s
+      rtf.score_l = ""
+      rtf.score_r = ""
       rtf.save
     end
   end
