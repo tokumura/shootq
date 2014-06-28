@@ -1,0 +1,29 @@
+<%= form_for(@result_tnmtfirst) do |f| %>
+  <% if @result_tnmtfirst.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@result_tnmtfirst.errors.count, "error") %> prohibited this result_tnmtfirst from being saved:</h2>
+
+      <ul>
+      <% @result_tnmtfirst.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :match_code %><br>
+    <%= f.text_field :match_code %>
+  </div>
+  <div class="field">
+    <%= f.label :score_l %><br>
+    <%= f.text_field :score_l %>
+  </div>
+  <div class="field">
+    <%= f.label :score_r %><br>
+    <%= f.text_field :score_r %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

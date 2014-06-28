@@ -1,0 +1,29 @@
+<h1>Listing result_tnmtfirsts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Match code</th>
+      <th>Score l</th>
+      <th>Score r</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @result_tnmtfirsts.each do |result_tnmtfirst| %>
+      <tr>
+        <td><%= result_tnmtfirst.match_code %></td>
+        <td><%= result_tnmtfirst.score_l %></td>
+        <td><%= result_tnmtfirst.score_r %></td>
+        <td><%= link_to 'Show', result_tnmtfirst %></td>
+        <td><%= link_to 'Edit', edit_result_tnmtfirst_path(result_tnmtfirst) %></td>
+        <td><%= link_to 'Destroy', result_tnmtfirst, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Result tnmtfirst', new_result_tnmtfirst_path %>

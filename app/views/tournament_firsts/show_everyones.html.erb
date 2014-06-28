@@ -24,21 +24,20 @@
     <% codes = m.match_code.split('-') %>
     <% country_l = Country.find_by(code: codes[0].to_s) %>
     <% country_r = Country.find_by(code: codes[1].to_s) %>
-    <%# result_code = @results[m.match_code] %>
+    <% result_code = TournamentFirst.get_result_code(m.match_code) %>
     <tr>
       <td>
         <img src="http://img.fifa.com/images/flags/4/<%=country_l.flag %>.png" style="width:30px;"> -
         <img src="http://img.fifa.com/images/flags/4/<%=country_r.flag %>.png" style="width:30px;">
       </td>
       <td style="text-align:center">
-        <%# result = ResultFirst.find_by match_code: m.match_code %>
-        <%#=result.score_l%> - <%#=result.score_r%>
+        <% result = ResultTnmtfirst.find_by match_code: m.match_code %>
+        <%=result.score_l%> - <%=result.score_r%>
       </td>
       <% @users.each do |u| %>
         <% bets = TournamentFirst.where("match_code = ? AND user_id = ?", m.match_code, u.id.to_s).first %>
-        <%# bet_code = TournamentFirst.get_bet_code(m.match_code, u.id) %>
-        <%# bgcolor = BetFirst.get_bgcolor(bet_code, result_code) %>
-        <% bgcolor = "" %>
+        <% bet_code = TournamentFirst.get_bet_code(m.match_code, u.id) %>
+        <% bgcolor = BetFirst.get_bgcolor(bet_code, result_code) %>
         <td style="text-align:center; <%=bgcolor%>"><%=bets.score_l%> - <%=bets.score_r%></td>
       <% end %>
     </tr>

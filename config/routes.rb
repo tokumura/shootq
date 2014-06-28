@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :result_tnmtfirsts do
+    collection do
+      get :init
+    end
+  end
+
   resources :bet_winners do
     collection do
       get :init

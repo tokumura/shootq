@@ -29,10 +29,10 @@ class TournamentFirstsController < ApplicationController
     @users = User.all.order("id")
     @matchs = current_user.tournament_firsts.order("id")
     @tournament_firsts = TournamentFirst.all.order("user_id")
-    #@results = Hash.new
-    #BetFirst.order("id").each do |r|
-    #  @results.store(r.match_code, BetFirst.get_result_code(r.match_code))
-    #end
+    @results = Hash.new
+    ResultTnmtfirst.order("id").each do |r|
+      @results.store(r.match_code, TournamentFirst.get_result_code(r.match_code))
+    end
   end
 
   def init

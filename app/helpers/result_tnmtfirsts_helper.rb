@@ -1,0 +1,2 @@
+module ResultTnmtfirstsHelper
+end
