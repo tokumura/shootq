@@ -5,7 +5,7 @@ class CountriesController < ApplicationController
   before_filter :authenticate_user!
 
   def init
-    Country.init
+    #Country.init
     redirect_to countries_path
   end
 

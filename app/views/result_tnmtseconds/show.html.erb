@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Match code:</strong>
+  <%= @result_tnmtsecond.match_code %>
+</p>
+
+<p>
+  <strong>Score l:</strong>
+  <%= @result_tnmtsecond.score_l %>
+</p>
+
+<p>
+  <strong>Score r:</strong>
+  <%= @result_tnmtsecond.score_r %>
+</p>
+
+<%= link_to 'Edit', edit_result_tnmtsecond_path(@result_tnmtsecond) %> |
+<%= link_to 'Back', result_tnmtseconds_path %>

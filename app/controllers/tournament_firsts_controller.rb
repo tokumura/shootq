@@ -37,6 +37,11 @@ class TournamentFirstsController < ApplicationController
 
   def init
     #TournamentFirst.init
+    #tf = TournamentFirst.where("match_code = ?", "BRA-COL")
+    #tf = TournamentFirst.where("match_code = ?", "FRA-DEU")
+    #tf = TournamentFirst.where("match_code = ?", "NLD-CRI")
+    #tf = TournamentFirst.where("match_code = ?", "ARG-BEL")
+    #tf.destroy_all if tf.size > 0
     redirect_to user_root_path
   end
 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_code: MyString
+  score_l: MyString
+  score_r: MyString
+  user_id: 1
+
+two:
+  match_code: MyString
+  score_l: MyString
+  score_r: MyString
+  user_id: 1

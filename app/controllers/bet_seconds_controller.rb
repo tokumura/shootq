@@ -47,7 +47,7 @@ class BetSecondsController < ApplicationController
   end
 
   def init
-    BetSecond.init
+    #BetSecond.init
     redirect_to bet_seconds_path
   end
 

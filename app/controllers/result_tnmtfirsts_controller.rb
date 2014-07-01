@@ -2,7 +2,7 @@ class ResultTnmtfirstsController < ApplicationController
   before_action :set_result_tnmtfirst, only: [:show, :edit, :update, :destroy]
 
   def init
-    ResultTnmtfirst.init
+    #ResultTnmtfirst.init
     redirect_to user_root_path
   end
 

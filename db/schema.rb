@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628053816) do
+ActiveRecord::Schema.define(version: 20140701033001) do
 
   create_table "bet_firsts", force: true do |t|
     t.string   "match_code"
@@ -99,7 +99,23 @@ ActiveRecord::Schema.define(version: 20140628053816) do
     t.datetime "updated_at"
   end
 
+  create_table "result_tmntseconds", force: true do |t|
+    t.string   "match_code"
+    t.string   "score_l"
+    t.string   "score_r"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "result_tnmtfirsts", force: true do |t|
+    t.string   "match_code"
+    t.string   "score_l"
+    t.string   "score_r"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "result_tnmtseconds", force: true do |t|
     t.string   "match_code"
     t.string   "score_l"
     t.string   "score_r"
@@ -115,6 +131,16 @@ ActiveRecord::Schema.define(version: 20140628053816) do
     t.datetime "updated_at"
     t.string   "match_date"
     t.integer  "user_id"
+  end
+
+  create_table "tournament_seconds", force: true do |t|
+    t.string   "match_code"
+    t.string   "score_l"
+    t.string   "score_r"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "match_date"
   end
 
   create_table "user_infos", force: true do |t|

@@ -2,6 +2,7 @@ class ResultSecondsController < ApplicationController
   before_action :set_result_second, only: [:show, :edit, :update, :destroy]
 
   def init
+=begin
     sets = Array.new
     sets << "a,BRA/MEX"
     sets << "b,NLD/CHL"
@@ -20,6 +21,7 @@ class ResultSecondsController < ApplicationController
       rs.countries = val[1]
       rs.save
     end
+=end
     redirect_to result_seconds_path
   end
 

@@ -8,11 +8,11 @@
 </div>
 <% end %>
 
-<h1>ベスト１６試合予想</h1>
+<h1>ベスト８　試合予想</h1>
 
 <div class="row">
     <div class="col-md-6">
-      <%= form_tag('/tournament_firsts/bet', :method => :post) do |f| %>
+      <%= form_tag('/tournament_seconds/bet', :method => :post) do |f| %>
         <%= submit_tag "登　録", :class => "btn btn-primary" %>
         <table class="table table-hover" style="width:90%;">
           <thead>
@@ -26,12 +26,12 @@
           <input type="hidden" id="now" value="<%=now%>">
 
           <tbody>
-            <% @tournament_firsts.each_with_index do |tournament_first, i| %>
-              <%= fields_for tournament_first do |tf| %>
-              <% codes = tournament_first.match_code.split('-') %>
+            <% @tournament_seconds.each_with_index do |tournament_second, i| %>
+              <%= fields_for tournament_second do |tf| %>
+              <% codes = tournament_second.match_code.split('-') %>
               <% country_l = Country.find_by(code: codes[0].to_s) %>
               <% country_r = Country.find_by(code: codes[1].to_s) %>
-              <% match_date = tournament_first.match_date %>
+              <% match_date = tournament_second.match_date %>
               <% points = (0..10).to_a %>
               <% disabled = false %>
               <% kickoff_time = DateTime.parse(match_date) %>

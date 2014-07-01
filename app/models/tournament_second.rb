@@ -1,11 +1,11 @@
-class TournamentFirst < ActiveRecord::Base
+class TournamentSecond < ActiveRecord::Base
   belongs_to :user
 
   def self.get_score user_id
     score_total = 0
 
     user = User.find_by id: user_id
-    user.tournament_firsts.each do |tf|
+    user.tournament_seconds.each do |tf|
       result = get_result_code(tf.match_code)
       bet = get_bet_code(tf.match_code, user_id)
 
@@ -32,7 +32,7 @@ class TournamentFirst < ActiveRecord::Base
 
   def self.get_bet_code match_code, user_id
     bet = ""
-    bt = TournamentFirst.where("match_code = ? AND user_id = ?", match_code, user_id.to_s).first
+    bt = TournamentSecond.where("match_code = ? AND user_id = ?", match_code, user_id.to_s).first
     if bt.score_l.to_i > bt.score_r.to_i
       bet = "l" + bt.score_l.to_s + bt.score_r.to_s
     elsif bt.score_l.to_i < bt.score_r.to_i
@@ -45,7 +45,7 @@ class TournamentFirst < ActiveRecord::Base
 
   def self.get_result_code match_code
     result = ""
-    rf = ResultTnmtfirst.find_by match_code: match_code
+    rf = ResultTnmtsecond.find_by match_code: match_code
     if rf.score_l != "" && rf.score_r != ""
       if rf.score_l.to_i > rf.score_r.to_i
         result = "l" + rf.score_l.to_s + rf.score_r.to_s
@@ -58,58 +58,29 @@ class TournamentFirst < ActiveRecord::Base
     result
   end
 
-  def self.b8init
-    matches = Array.new
-    matches << "7/5 5:00,BRA-COL"
-    matches << "7/5 1:00,FRA-DEU"
-    matches << "7/6 5:00,NLD-MEX"
-    matches << "7/6 1:00,CRI-GRC"
-
-    users = User.all
-    users.each do |u|
-      matches.each do |match|
-        info = match.split(",")
-        tm = TournamentFirst.new
-        tm.match_date = info[0].to_s
-        tm.match_code = info[1].to_s
-        tm.score_l = (rand(3) + 1).to_s
-        tm.score_r = (rand(3) + 1).to_s
-        #tm.score_l = ""
-        #tm.score_r = ""
-        tm.user_id = u.id
-        tm.save
-      end
-    end
-  end
 
   def self.init
     matches = Array.new
-    matches << "6/29 1:00,BRA-CHL"
-    matches << "6/29 5:00,COL-URY"
-    matches << "6/30 1:00,NLD-MEX"
-    matches << "6/30 5:00,CRI-GRC"
-    matches << "7/1 1:00,FRA-NGA"
-    matches << "7/1 5:00,DEU-DZA"
-    matches << "7/2 1:00,ARG-CHE"
-    matches << "7/2 5:00,BEL-USA"
+    matches << "7/5 1:00,FRA-DEU"
+    matches << "7/5 5:00,BRA-COL"
+    matches << "7/6 1:00,ARG-BEL"
+    matches << "7/6 5:00,NLD-CRI"
 
-    TournamentFirst.destroy_all
+    TournamentSecond.destroy_all
     users = User.all
     users.each do |u|
       matches.each do |match|
         info = match.split(",")
-        tm = TournamentFirst.new
+        tm = TournamentSecond.new
         tm.match_date = info[0].to_s
         tm.match_code = info[1].to_s
-        tm.score_l = (rand(4) + 1).to_s
-        tm.score_r = (rand(4) + 1).to_s
-        #tm.score_l = ""
-        #tm.score_r = ""
+        #tm.score_l = (rand(3) + 1).to_s
+        #tm.score_r = (rand(3) + 1).to_s
+        tm.score_l = ""
+        tm.score_r = ""
         tm.user_id = u.id
         tm.save
       end
     end
-=begin
-=end
   end
 end

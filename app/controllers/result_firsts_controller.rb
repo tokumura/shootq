@@ -2,7 +2,7 @@ class ResultFirstsController < ApplicationController
   before_action :set_result_first, only: [:show, :edit, :update, :destroy]
 
   def init
-    ResultFirst.init
+    #ResultFirst.init
     redirect_to result_firsts_path
   end
 

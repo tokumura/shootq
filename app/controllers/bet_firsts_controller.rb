@@ -3,7 +3,7 @@ class BetFirstsController < ApplicationController
   before_filter :authenticate_user!
 
   def init
-    BetFirst.init
+    #BetFirst.init
     redirect_to user_root_path
   end
 

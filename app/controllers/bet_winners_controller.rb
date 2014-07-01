@@ -2,7 +2,7 @@ class BetWinnersController < ApplicationController
   before_action :set_bet_winner, only: [:show, :edit, :update, :destroy]
 
   def init
-    BetWinner.init
+    #BetWinner.init
     redirect_to user_root_path
   end
 
