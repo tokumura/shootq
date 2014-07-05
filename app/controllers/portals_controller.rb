@@ -13,10 +13,15 @@ class PortalsController < ApplicationController
     temp_list = Array.new
     users = User.all
     users.each do |u|
-      score = BetFirst.get_score u.id
+      #score = BetFirst.get_score u.id
+      #score_2 = BetSecond.get_score u.id
+      #score_t16 = TournamentFirst.get_score u.id
+      #score = score + score_2 + score_t16
+      score_1 = BetFirst.get_score u.id
       score_2 = BetSecond.get_score u.id
       score_t16 = TournamentFirst.get_score u.id
-      score = score + score_2 + score_t16
+      score_t8 = TournamentSecond.get_score u.id
+      score = score_1 + score_2 + score_t16 + score_t8
       score_info = Array.new
       score_info << u.user_info.name
       score_info << score.to_i
