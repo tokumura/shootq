@@ -8,7 +8,13 @@
 </div>
 <% end %>
 
-<h1>準々決勝　試合予想</h1>
+<% if @stage == "semifinal" %>
+  <h1>準決勝　試合予想</h1>
+<% elsif @stage == "final" %>
+  <h1>決勝/３位決定戦　試合予想</h1>
+<% else %>
+  <h1>準々決勝　試合予想</h1>
+<% end %>
 
 <div class="row">
     <div class="col-md-6">

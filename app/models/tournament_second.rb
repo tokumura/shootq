@@ -83,4 +83,26 @@ class TournamentSecond < ActiveRecord::Base
       end
     end
   end
+
+  def self.init_semifinal
+    matches = Array.new
+    matches << "7/9 5:00,BRA-DEU"
+    matches << "7/10 5:00,NLD-ARG"
+
+    users = User.all
+    users.each do |u|
+      matches.each do |match|
+        info = match.split(",")
+        tm = TournamentSecond.new
+        tm.match_date = info[0].to_s
+        tm.match_code = info[1].to_s
+        tm.score_l = (rand(3) + 1).to_s
+        tm.score_r = (rand(3) + 1).to_s
+        #tm.score_l = ""
+        #tm.score_r = ""
+        tm.user_id = u.id
+        tm.save
+      end
+    end
+  end
 end

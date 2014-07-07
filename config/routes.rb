@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :tournament_seconds do
     collection do 
       get :init
+      get :init_semifinal
       post :bet
       get :show_everyones
     end

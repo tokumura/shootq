@@ -6,6 +6,11 @@ class TournamentSecondsController < ApplicationController
     redirect_to user_root_path
   end
 
+  def init_semifinal
+    TournamentSecond.init_semifinal
+    redirect_to user_root_path
+  end
+
   def bet
     bet_data = params[:tournament_second]
     bet_data.each do |bet|
@@ -34,7 +39,13 @@ class TournamentSecondsController < ApplicationController
   # GET /tournament_seconds
   # GET /tournament_seconds.json
   def index
-    @tournament_seconds = current_user.tournament_seconds.order("id")
+    @stage = params["stage"].to_s
+    if @stage == "semifinal"
+      @tournament_seconds = TournamentSecond.where("(match_code = ? OR match_code = ?) AND user_id = ?", "BRA-DEU", "NLD-ARG", current_user.id).order("id")
+    elsif @stage == "final"
+    else
+      @tournament_seconds = TournamentSecond.where("(match_code != ? AND match_code != ?) AND user_id = ?", "BRA-DEU", "NLD-ARG", current_user.id).order("id")
+    end
   end
 
   # GET /tournament_seconds/1
