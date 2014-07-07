@@ -78,8 +78,52 @@ class BetFirst < ActiveRecord::Base
     # Tournament 16
     history = add_ranking_history_tournament16(history, score_all, user_id)
 
+    # Tournament 8
+    history = add_ranking_history_tournament8(history, score_all, user_id)
 
+    history
+  end
 
+  def self.add_ranking_history_tournament8 history, score_all, user_id
+    ResultTnmtsecond.order("id").each do |r|
+      score_list = Array.new
+      temp_list = Array.new
+      result = TournamentSecond.get_result_code r.match_code
+
+      # Group Stage
+      if result != ""
+        User.order("id").each do |u|
+          score = 0
+          bet = TournamentSecond.get_bet_code(r.match_code, u.id)
+          if result != ""
+            score = score + 3 if result[0,1] == bet[0,1]
+            score = score + 3 if result[1..2] == bet[1..2]
+          end
+          score_all.store(u.id.to_s, score_all[u.id.to_s].to_i + score.to_i)
+          score_info = Array.new
+          score_info << u.user_info.name
+          score_info << score_all[u.id.to_s].to_i
+          temp_list << score_info
+        end
+        score_list = temp_list.sort{|a,b|
+          b[1] <=> a[1]
+        }
+
+        user = User.find_by id: user_id
+        rank = 1
+        score_list.each_with_index do |s, i|
+          if i > 0
+            rank = rank + 1
+            if score_list[i-1][1] == s[1]
+              rank = rank - 1
+            end
+          end
+          if user.user_info.name == s[0].to_s
+            history << (rank - 13).abs
+          end
+        end
+      end
+    end
     history
   end
 

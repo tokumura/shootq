@@ -2,12 +2,12 @@ class TournamentSecondsController < ApplicationController
   before_action :set_tournament_second, only: [:show, :edit, :update, :destroy]
 
   def init
-    TournamentSecond.init
+    #TournamentSecond.init
     redirect_to user_root_path
   end
 
   def init_semifinal
-    TournamentSecond.init_semifinal
+    #TournamentSecond.init_semifinal
     redirect_to user_root_path
   end
 

@@ -60,6 +60,7 @@ class TournamentSecond < ActiveRecord::Base
 
 
   def self.init
+=begin
     matches = Array.new
     matches << "7/5 1:00,FRA-DEU"
     matches << "7/5 5:00,BRA-COL"
@@ -82,9 +83,11 @@ class TournamentSecond < ActiveRecord::Base
         tm.save
       end
     end
+=end
   end
 
   def self.init_semifinal
+=begin
     matches = Array.new
     matches << "7/9 5:00,BRA-DEU"
     matches << "7/10 5:00,NLD-ARG"
@@ -104,5 +107,6 @@ class TournamentSecond < ActiveRecord::Base
         tm.save
       end
     end
+=end
   end
 end
