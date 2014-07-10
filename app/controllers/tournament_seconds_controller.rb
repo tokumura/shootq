@@ -11,6 +11,11 @@ class TournamentSecondsController < ApplicationController
     redirect_to user_root_path
   end
 
+  def init_final
+    TournamentSecond.init_final
+    redirect_to user_root_path
+  end
+
   def bet
     bet_data = params[:tournament_second]
     bet_data.each do |bet|
@@ -21,8 +26,9 @@ class TournamentSecondsController < ApplicationController
       bf_obj.score_r = b["score_r"]
       bf_obj.save!
     end
+
     respond_to do |format|
-      format.html { redirect_to tournament_seconds_path, notice: 'c(￣▽￣) OK!' }
+      format.html { redirect_to tournament_seconds_path + "?stage=final", notice: 'c(￣▽￣) OK!' }
     end
   end
 
@@ -43,8 +49,9 @@ class TournamentSecondsController < ApplicationController
     if @stage == "semifinal"
       @tournament_seconds = TournamentSecond.where("(match_code = ? OR match_code = ?) AND user_id = ?", "BRA-DEU", "NLD-ARG", current_user.id).order("id")
     elsif @stage == "final"
+      @tournament_seconds = TournamentSecond.where("(match_code = ? OR match_code = ?) AND user_id = ?", "BRA-NLD", "DEU-ARG", current_user.id).order("id")
     else
-      @tournament_seconds = TournamentSecond.where("(match_code != ? AND match_code != ?) AND user_id = ?", "BRA-DEU", "NLD-ARG", current_user.id).order("id")
+      @tournament_seconds = TournamentSecond.where("(match_code != ? AND match_code != ?) AND user_id = ?", "BRA-DEU", "NLD-ARG", current_user.id).order("id").limit(4)
     end
   end
 

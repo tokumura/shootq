@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do 
       get :init
       get :init_semifinal
+      get :init_final
       post :bet
       get :show_everyones
     end

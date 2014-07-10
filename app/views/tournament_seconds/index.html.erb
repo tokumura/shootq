@@ -19,7 +19,9 @@
 <div class="row">
     <div class="col-md-6">
       <%= form_tag('/tournament_seconds/bet', :method => :post) do |f| %>
-        <%= submit_tag "登　録", :class => "btn btn-primary" %>
+        <% if @stage == "final" %>
+        <%# submit_tag "登　録", :class => "btn btn-primary" %>
+        <% end %>
         <table class="table table-hover" style="width:90%;">
           <thead>
             <tr>
@@ -70,7 +72,9 @@
             <% end %>
           </tbody>
         </table>
+        <% if @stage == "final" %>
         <%= submit_tag "登　録", :class => "btn btn-primary" %>
+        <% end %>
       <% end %>
     </div>
 </div>
